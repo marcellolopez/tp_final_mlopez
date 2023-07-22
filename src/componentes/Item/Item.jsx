@@ -20,7 +20,7 @@ const Item = ({ id, artista, album, precio, img, stock }) => {
 
   const manejadorCantidad = (cantidad) => {
       setAgregarCantidad(cantidad);
-      const item = {id, artista, album, precio};
+      const item = {id, artista, album, precio, formato_precio};
       console.log(item);
       
       agregarProducto(item, cantidad);
