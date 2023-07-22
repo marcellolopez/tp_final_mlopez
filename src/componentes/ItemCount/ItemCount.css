@@ -1,0 +1,12 @@
+.contador{
+    display: flex; /* Muestra los elementos en línea */
+    justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.boton{
+    height: 1.7rem;
+    background-color: black;
+    color: white;
+    margin: 0.5rem;
+    
+}

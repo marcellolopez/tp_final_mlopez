@@ -1,0 +1,44 @@
+.logo{
+  width: 10rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+  
+li {
+  display: inline-block;
+  padding: 10px;
+  margin: 1rem;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+/* Estilos para el efecto hover */
+.menu:hover {
+  color: black !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.menu{
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+menu:visited{
+  color: black;
+}
