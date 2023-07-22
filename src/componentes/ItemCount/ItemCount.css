@@ -4,6 +4,7 @@
 }
 
 .boton{
+    cursor: pointer;
     height: 1.7rem;
     background-color: black;
     color: white;
