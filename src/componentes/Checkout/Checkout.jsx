@@ -2,7 +2,8 @@ import {useState, useContext} from 'react';
 import { CarritoContext } from '../../context/CarritoContext';
 import { db } from '../../services/config';
 import { addDoc, doc, getDoc, updateDoc, collection } from 'firebase/firestore';
-//IMPORTACION DE BOOTSTRAP REACT
+import "./Checkout.css";
+
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -94,33 +95,33 @@ const Checkout = () => {
             <h2>Checkout</h2>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
-                    <Form.Group as={Col} md="3" controlId="validationCustom01">
+                    <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom01">
                     <Form.Label>Nombre </Form.Label>
                     <Form.Control
                         required
                         type="text"
                         placeholder="Nombre"
-                        defaultValue="Juan"
+                        defaultValue=""
                         value={nombre} 
                         onChange={(e) => setNombre(e.target.value)}
                         disabled={formularioEnviado}
                     />
                     <Form.Control.Feedback>¡Perfecto!</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} md="3" controlId="validationCustom02">
+                    <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom02">
                     <Form.Label>Apellido</Form.Label>
                     <Form.Control
                         required
                         type="text"
                         placeholder="Apellido"
-                        defaultValue="Betancourt"
+                        defaultValue="  "
                         value={apellido} 
                         onChange={(e) => setApellido(e.target.value) }
                         disabled={formularioEnviado}
                     />
                     <Form.Control.Feedback>¡Perfecto!</Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} md="3" controlId="validationCustom03">
+                    <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom03">
                     <Form.Label>Telefono</Form.Label>
                     <Form.Control type="text" placeholder="Telefono" required value={telefono} onChange={(e) => setTelefono(e.target.value) } disabled={formularioEnviado}/>
                     <Form.Control.Feedback type="invalid">
@@ -129,14 +130,14 @@ const Checkout = () => {
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
-                    <Form.Group as={Col} md="3" controlId="validationCustom04">
+                    <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom04">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="text" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value) } disabled={formularioEnviado} />
                     <Form.Control.Feedback type="invalid">
                         Porfavor ingrese un mail válido
                     </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group as={Col} md="3" controlId="validationCustom05">
+                    <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom05">
                     <Form.Label>Confirmacion Email</Form.Label>
                     <Form.Control type="text" placeholder="Confirmacion Email" required value={emailConfirmacion} onChange={(e) => setEmailConfirmacion(e.target.value) } disabled={formularioEnviado}/>
                     <Form.Control.Feedback type="invalid">
@@ -144,24 +145,24 @@ const Checkout = () => {
                     </Form.Control.Feedback>
                     </Form.Group>
                 </Row>
-                <Form.Group className="mb-3">
+                <Form.Group className="offset-4 col-md-4">
                     <Form.Check
                     required
                     label="Acepte los terminos y condiciones"
                     feedback="debe aceptar los terminos y condiciones"
                     feedbackType="invalid"
                     />
-                </Form.Group>
-                <Button type="submit" disabled={formularioEnviado}>Submit form</Button>
+                </Form.Group >
+                <Button className="offset-4 col-md-4" type="submit" disabled={formularioEnviado}>Enviar</Button>
                 </Form>
 
             {
-                error && <p style={{ color: "red" }}> {error} </p>
+                error && <p className="offset-4 col-md-4" style={{ color: "red" }}> {error} </p>
             }
 
             {
                 orderId && (
-                    <strong>¡Gracias por tu compra! Tu número de orden es {orderId} </strong>
+                    <strong className="offset-4 col-md-4">¡Gracias por tu compra! Tu número de orden es {orderId} </strong>
                 )
             }
         </>
