@@ -30,7 +30,7 @@ const ItemDetail = ( {id, artista, album, precio, img, stock} ) => {
         <h4 className="album-name m-0"> {album} </h4>
         <p className="product-price m-0"> {formato_precio} </p>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
-        <ItemCount inicial={0} stock={stock} funcionAgregar={manejadorCantidad}/>
+        <ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad}/>
       </div>
     </div>
   )

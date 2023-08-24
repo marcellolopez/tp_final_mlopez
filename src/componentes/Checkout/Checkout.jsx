@@ -62,8 +62,9 @@ const Checkout = () => {
         console.log("enviado con exito")
         Promise.all(
             order.items.map(async (prod) => {
-                const productoRef = doc(db,"products",prod.id);
+                const productoRef = doc(db,"inventario",prod.id);
                 const productoDoc = await getDoc(productoRef);
+                console.log(productoDoc)
                 const stockActual = productoDoc.data().stock;
 
                 await updateDoc(productoRef, {
@@ -100,9 +101,7 @@ const Checkout = () => {
                     <Form.Control
                         required
                         type="text"
-                        placeholder="Nombre"
-                        defaultValue=""
-                        value={nombre} 
+                        placeholder="Nombre" 
                         onChange={(e) => setNombre(e.target.value)}
                         disabled={formularioEnviado}
                     />
@@ -114,8 +113,6 @@ const Checkout = () => {
                         required
                         type="text"
                         placeholder="Apellido"
-                        defaultValue="  "
-                        value={apellido} 
                         onChange={(e) => setApellido(e.target.value) }
                         disabled={formularioEnviado}
                     />
@@ -123,7 +120,7 @@ const Checkout = () => {
                     </Form.Group>
                     <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom03">
                     <Form.Label>Telefono</Form.Label>
-                    <Form.Control type="text" placeholder="Telefono" required value={telefono} onChange={(e) => setTelefono(e.target.value) } disabled={formularioEnviado}/>
+                    <Form.Control type="text" placeholder="Telefono" required onChange={(e) => setTelefono(e.target.value) } disabled={formularioEnviado}/>
                     <Form.Control.Feedback type="invalid">
                         Por favor ingrese su número de teléfono
                     </Form.Control.Feedback>
@@ -132,14 +129,14 @@ const Checkout = () => {
                 <Row className="mb-3">
                     <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom04">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="text" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value) } disabled={formularioEnviado} />
+                    <Form.Control type="text" placeholder="Email" required  onChange={(e) => setEmail(e.target.value) } disabled={formularioEnviado} />
                     <Form.Control.Feedback type="invalid">
                         Porfavor ingrese un mail válido
                     </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="offset-4" as={Col} md="4" controlId="validationCustom05">
                     <Form.Label>Confirmacion Email</Form.Label>
-                    <Form.Control type="text" placeholder="Confirmacion Email" required value={emailConfirmacion} onChange={(e) => setEmailConfirmacion(e.target.value) } disabled={formularioEnviado}/>
+                    <Form.Control type="text" placeholder="Confirmacion Email" required onChange={(e) => setEmailConfirmacion(e.target.value) } disabled={formularioEnviado}/>
                     <Form.Control.Feedback type="invalid">
                         Porfavor ingrese un mail válido
                     </Form.Control.Feedback>

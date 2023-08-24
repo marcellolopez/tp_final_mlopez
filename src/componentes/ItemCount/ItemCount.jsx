@@ -4,8 +4,9 @@ import "./ItemCount.css";
 
 
 const ItemCount = ({inicial, stock, funcionAgregar}) => {
+    inicial = 1;
     const [contador, setContador] = useState(inicial);
-
+    
     const incrementar = () => {
         if(contador < stock) {
             setContador(contador +1);
