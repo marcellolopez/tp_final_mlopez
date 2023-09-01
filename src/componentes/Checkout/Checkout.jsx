@@ -73,7 +73,15 @@ const Checkout = () => {
             })
         )
             .then(()=> {
-                addDoc(collection(db,"orders"), order)
+                addDoc(collection(db,"orders"), {
+                    fecha: new Date(),
+                    totalQuantity: cantidadTotal,
+                    totalAmount: total,
+                    nombre,
+                    apellido,
+                    telefono,
+                    email,
+                })
                     .then((docRef) => {
                         setOrderId(docRef.id);
                         vaciarCarrito();
